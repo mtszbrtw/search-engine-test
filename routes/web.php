@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\searchController;
+use App\Http\Controllers\customer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,9 @@ Route::get('userform',function(){
 });
 
 Route::post('/userform', [searchController::class,'dodaj'])->name('dodaj');
+
+Route::resource('customer',customer::class);
+
+
+
+

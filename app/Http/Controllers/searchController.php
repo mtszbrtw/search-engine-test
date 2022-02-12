@@ -38,7 +38,7 @@ class searchController extends Controller
         $dat = $request->created_at;
 
         DB::table('records')->insert(array('title'=>$title,'description'=>$description,'created_at'=>$dat));
-       return redirect()->route('glowna')->with('message','rekord został dodany');
+        return redirect()->route('glowna')->with('message','rekord został dodany');
     }
 
     public function edytuj_pokaz($id){
