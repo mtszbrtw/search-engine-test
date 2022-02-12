@@ -36,7 +36,8 @@
                         <td>{{$wynik->title}}</td>
                         <td>{{$wynik->description}}</td>
                         <td>{{$wynik->created_at}}</td>
-                        <td><a href="{{route('edytuj.pokaz',['id'=>$wynik->id])}}"><button type="button" class="btn btn-info">EDYTUJ</button></a></td>
+                        <td><a href="{{route('edytuj.pokaz',['id'=>$wynik->id])}}"><button type="button" class="btn btn-info">EDYTUJJ</button></a>
+                                <a href="{{route('usun',['id'=>$wynik->id])}}"><button type="button" class="btn btn-danger">USUŃ</button></a></td>
                     </tr>
 
                 @endforeach

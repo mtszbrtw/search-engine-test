@@ -16,6 +16,7 @@ use App\Http\Controllers\searchController;
 Route::get('/', [searchController::class,'pokaz'])->name('glowna');
 Route::get('/edytuj/pokaz/{id}', [searchController::class,'edytuj_pokaz'])->name('edytuj.pokaz');
 Route::put('/edytuj/edytuj/{id}', [searchController::class,'edytuj_edytuj'])->name('edytuj.edytuj');
+Route::get('/usun/{id}', [searchController::class,'usun'])->name('usun');
 Route::get('userform',function(){
 
     return view('userform');

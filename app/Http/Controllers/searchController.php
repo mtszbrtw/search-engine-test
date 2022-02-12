@@ -19,10 +19,10 @@ class searchController extends Controller
 
 
             if (isset($daty)) {
-                $wynik = record::where('description', 'RLIKE', $opis)
+                $wynik = DB::table('records')->where('description', 'RLIKE', $opis)
                     ->where('title', 'RLIKE', $tytul)->where('created_at', $daty)->get();
             } else {
-                $wynik = record::where('description', 'RLIKE', $opis)
+                $wynik = DB::table('records')->where('description', 'RLIKE', $opis)
                     ->where('title', 'RLIKE', $tytul)->get();
             }
 
@@ -37,13 +37,13 @@ class searchController extends Controller
         $description = $request->description;
         $dat = $request->created_at;
 
-       record::insert(array('title'=>$title,'description'=>$description,'created_at'=>$dat));
+        DB::table('records')->insert(array('title'=>$title,'description'=>$description,'created_at'=>$dat));
        return redirect()->route('glowna')->with('message','rekord został dodany');
     }
 
     public function edytuj_pokaz($id){
 
-    $record = record::find($id);
+    $record =  DB::table('records')->find($id);
 
     return view('edytuj',['record'=>$record]);
 
@@ -61,4 +61,13 @@ class searchController extends Controller
 
       return redirect()->route('glowna')->with('message','rekord został edytowany');
     }
+
+
+    public function usun($id){
+
+        record::destroy($id);
+        return redirect()->route('glowna')->with('message','rekord usunięty');
+
+    }
+
 }
